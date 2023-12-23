@@ -20,6 +20,16 @@ INPUT_SCHEMA = {
         'default': 4,
         'constraints': lambda scale: 0 < scale < 16
     },
+    "width": {
+        "type": int,
+        "required": False,
+        "default": None,
+    },
+    "height": {
+        "type": int,
+        "required": False,
+        "default": None,
+    },
     'tile': {
         'type': int,
         'required': False,
