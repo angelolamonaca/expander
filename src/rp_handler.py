@@ -94,15 +94,15 @@ def process_image(upsampler, validated_input, image_path, job_id, width, height)
 def handler(job):
     job_input = job['input']
     validated_input = validate(job_input, INPUT_SCHEMA)
-    width = job_input.get('width')
-    height = job_input.get('height')
+    width = validated_input['validated_input'].get('width')
+    height = validated_input['validated_input'].get('height')
     output_type = validated_input['validated_input'].get('output_type', 'individual')
 
     if 'errors' in validated_input:
         return {"errors": validated_input['errors']}
 
     validated_input = validated_input['validated_input']
-    remote_file = rp_download.file(validated_input.get('data_url', None))
+    remote_file = rp_download.file(validated_input.get('image', None))
     data_path = remote_file["file_path"]
     job_id = job['id']
 

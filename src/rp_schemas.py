@@ -1,5 +1,5 @@
 INPUT_SCHEMA = {
-    'data_url': {
+    'image': {
         'type': str,
         'required': True
     },
